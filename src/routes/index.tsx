@@ -19,8 +19,8 @@ export const Route = createFileRoute("/")({
 
 const collaborators = [
   { name: "Adobe Express", logo: "/collaborator-logos/adobe-express.svg" },
-  { name: "Kissanconnect" },
-  { name: "Cyberleak Developers" },
+  { name: "Kissanconnect", logo: "/collaborator-logos/kissanconnect.svg" },
+  { name: "Cyberleak Developers", logo: "/collaborator-logos/cyberleak-developers.svg" },
   { name: "GitHub", logo: "/collaborator-logos/github.svg" },
   { name: "Photoshop", logo: "/collaborator-logos/photoshop.svg" },
   { name: "DaVinci Resolve", logo: "/collaborator-logos/davinci-resolve.svg" },

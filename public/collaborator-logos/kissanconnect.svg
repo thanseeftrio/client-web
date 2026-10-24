@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 120" role="img" aria-labelledby="title">
+  <title id="title">Kissan Connect</title>
+  <g fill="none" stroke="#668d2e" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke-width="4" d="M68 62C50 39 48 22 51 11c13 9 21 24 22 42M61 48C45 39 38 28 36 18c13 4 22 13 29 25M78 43c6-18 17-29 28-34 0 15-7 28-21 39M75 61c14-16 28-22 41-21-6 13-19 22-37 26"/>
+    <path stroke-width="3" d="M52 12l15 52M37 19l31 38M105 10L76 58M114 43L80 64"/>
+  </g>
+  <path fill="#668d2e" d="M77 19c18-17 39-20 53-12-8 16-24 26-47 25z"/>
+  <path fill="#9bad45" d="M43 10c-1 20 8 37 28 49l5-12C66 32 56 19 43 10z"/>
+  <text x="79" y="72" fill="#173d2a" font-family="Georgia,serif" font-size="47" font-weight="700" letter-spacing="-5">KL</text>
+  <text x="16" y="94" fill="#173d2a" font-family="Arial,sans-serif" font-size="19" font-weight="700">Kissan Connect</text>
+  <path d="M20 101h116" stroke="#668d2e" stroke-width="2"/>
+</svg>
