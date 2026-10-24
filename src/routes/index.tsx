@@ -208,7 +208,7 @@ function Index() {
       {/* Work */}
       <section id="work" className="mx-auto max-w-[1800px] px-6 py-24 md:px-8">
         <Reveal className="mb-12 flex items-end justify-between">
-          <h2 className="font-display text-6xl uppercase md:text-8xl">DOVV project previews</h2>
+          <h2 className="font-display text-6xl uppercase md:text-8xl">Zenmark project previews</h2>
           <Link to="/work" className="hidden text-sm font-medium underline underline-offset-4 md:block">View all</Link>
         </Reveal>
         <div className="grid gap-x-8 gap-y-14 md:grid-cols-2">

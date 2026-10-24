@@ -13,13 +13,13 @@ export const BOOK_URL = whatsappLink();
 
 export const projects = [
   {
-    name: "Terrace",
+    name: "Logo",
     img: work1,
-    tags: ["UX / UI Design", "Web Development"],
+    tags: ["Logo Design", "Brand Identity"],
     category: null as ServiceId | null,
-    provenance: "Original DOVV Studio project preview",
+    provenance: "Logo creation and brand identity preview",
     video: "/project-previews/terrace.mp4",
-    sourceUrl: "https://dovvstudio.com/work/terrace",
+    sourceUrl: undefined as string | undefined,
   },
   {
     name: "Oakline",
@@ -238,14 +238,16 @@ export function ProjectCard({ p, i }: { p: (typeof projects)[number]; i: number 
         <DialogTitle className="font-display text-4xl uppercase">{p.name}</DialogTitle>
         <DialogDescription>{p.provenance}.</DialogDescription>
         {p.video ? <video src={p.video} controls playsInline preload="metadata" className="aspect-[10/7] w-full object-contain" /> : <img src={p.img} alt={`${p.name} generated concept in full`} width={1280} height={896} className="aspect-[10/7] w-full object-contain" />}
-        <a
-          href={p.sourceUrl}
-          target="_blank"
-          rel="noreferrer"
-          className="inline-flex items-center gap-2 text-sm font-medium underline underline-offset-4"
-        >
-          View original project <ArrowUpRight className="h-4 w-4" />
-        </a>
+        {p.sourceUrl && (
+          <a
+            href={p.sourceUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 text-sm font-medium underline underline-offset-4"
+          >
+            View original project <ArrowUpRight className="h-4 w-4" />
+          </a>
+        )}
         <PillButton to="/contact">Discuss your project</PillButton>
       </DialogContent>
       </Dialog>
