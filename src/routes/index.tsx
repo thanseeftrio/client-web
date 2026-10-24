@@ -17,7 +17,14 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const logos = ["Motum", "ENDER", "ARQC Estudio", "SENSE", "Del Viento", "Silvina Paz", "Coderhouse"];
+const collaborators = [
+  { name: "Adobe Express", logo: "/collaborator-logos/adobe-express.svg" },
+  { name: "Kissanconnect" },
+  { name: "Cyberleak Developers" },
+  { name: "GitHub", logo: "/collaborator-logos/github.svg" },
+  { name: "Photoshop", logo: "/collaborator-logos/photoshop.svg" },
+  { name: "DaVinci Resolve", logo: "/collaborator-logos/davinci-resolve.svg" },
+];
 
 const testimonials = [
   { q: "The logo captured our shop's personality perfectly. The process was friendly, and we had a design we were proud to put on our sign.", n: "Aarav S.", r: "Sample client · India" },
@@ -172,12 +179,26 @@ function Index() {
 
         <div className="animate-fade-up mt-20 w-full max-w-5xl" style={{ animationDelay: "800ms" }}>
           <div className="flex items-center gap-4 text-sm text-muted-foreground">
-            <span className="h-px flex-1 bg-border" />Original DOVV reference clients — not verified for Zenmark<span className="h-px flex-1 bg-border" />
+            <span className="h-px flex-1 bg-border" />Brand collaborators<span className="h-px flex-1 bg-border" />
           </div>
           <div className="mt-6 overflow-hidden [mask-image:linear-gradient(90deg,transparent,black_15%,black_85%,transparent)]">
             <div className="animate-marquee flex w-max gap-16">
-              {[...logos, ...logos].map((l, i) => (
-                <span key={i} className="font-display whitespace-nowrap text-3xl uppercase text-muted-foreground/60">{l}</span>
+              {[...collaborators, ...collaborators].map((collaborator, i) => (
+                <span key={`${collaborator.name}-${i}`} className="flex h-12 shrink-0 items-center justify-center">
+                  {collaborator.logo ? (
+                    <img
+                      src={collaborator.logo}
+                      alt={collaborator.name}
+                      width="40"
+                      height="40"
+                      className="h-9 w-9 object-contain opacity-60 grayscale"
+                    />
+                  ) : (
+                    <span className="font-display whitespace-nowrap text-3xl uppercase text-muted-foreground/60">
+                      {collaborator.name}
+                    </span>
+                  )}
+                </span>
               ))}
             </div>
           </div>
