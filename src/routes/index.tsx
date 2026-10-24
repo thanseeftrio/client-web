@@ -20,11 +20,11 @@ export const Route = createFileRoute("/")({
 const logos = ["Motum", "ENDER", "ARQC Estudio", "SENSE", "Del Viento", "Silvina Paz", "Coderhouse"];
 
 const testimonials = [
-  { q: "Dario helped us improve the Coderhouse website with great design ideas and solid execution. He's creative, detail-oriented, and easy to work with.", n: "Christian Patiño", r: "Founder at Coderhouse" },
-  { q: "Dario turned our vision into a top-tier digital experience. His creativity, expertise, and attention to detail exceeded expectations. We hired him again immediately.", n: "Victor McInerney", r: "Founder at Motum" },
-  { q: "He understood exactly what we wanted and adapted perfectly to our vision. Communication was always clear and he delivered everything on time.", n: "Federico Deyá", r: "Founder at ENDER" },
-  { q: "He turned our Figma designs into a live Framer site within 24 hours, was super responsive to feedback, and handled every detail quickly.", n: "Shumel Lais", r: "Client at Day30" },
-  { q: "Amazing experience! Dario took the time to understand the vision and kept me updated in every step of the way. Committed, skilled and reliable. 5 stars!", n: "Josü", r: "Client" },
+  { q: "The logo captured our shop's personality perfectly. The process was friendly, and we had a design we were proud to put on our sign.", n: "Aarav S.", r: "Sample client · India" },
+  { q: "Our wedding invitation looked beautiful and felt personal to us. The details were handled with care, and the final design was easy to share with family.", n: "Ananya R.", r: "Sample client · India" },
+  { q: "The promotional poster was clear, colorful, and ready on time. It helped us present our event professionally.", n: "Kiran M.", r: "Sample client · India" },
+  { q: "The social media creatives gave our campaign a consistent look. Communication was smooth, and revisions were straightforward.", n: "Meera P.", r: "Sample client · India" },
+  { q: "The animated graphic brought our idea to life. The final motion design was polished and worked well across our channels.", n: "Rohan N.", r: "Sample client · India" },
 ];
 
 const steps = [
@@ -35,9 +35,9 @@ const steps = [
 ];
 
 const plans = [
-  { price: "$1k", unit: "one time, starting at", d: "A single high converting page for a launch, a product or a campaign.", f: ["Design and Framer build", "Responsive and animated", "Basic SEO setup", "1 round of revisions"] },
-  { price: "$2k", unit: "one time, starting at", d: "A complete site with CMS, ready to grow with your brand.", f: ["Up to 6 pages", "CMS for blog or projects", "SEO and analytics", "2 rounds of revisions", "30 days of support"], featured: true },
-  { price: "$600", unit: "per month, starting at", d: "Ongoing design and updates after launch, without hiring in house.", f: ["New sections and pages", "Content and CMS updates", "Priority replies", "Cancel anytime"] },
+  { name: "Logo & quick designs", price: "₹100–₹1,000", unit: "estimated project range", d: "A starting range for logo creation, invitations, or a single promotional design.", f: ["Logo and brand identity", "Wedding invitation design", "Poster or banner", "Final files for sharing"] },
+  { name: "Brand & campaign design", price: "₹1,000–₹3,000", unit: "estimated project range", d: "A broader design package for building a consistent visual presence.", f: ["Brand identity assets", "Wedding card suite", "Social media graphics", "Revisions shaped around your brief"], featured: true },
+  { name: "Creative campaigns", price: "₹4,000–₹6,000", unit: "estimated project range", d: "A larger bundle for campaign graphics, promotional materials, and motion.", f: ["Promotional posters and banners", "Advertising creatives", "Animated graphics", "Motion design"] },
 ];
 
 function Line({ text, delay }: { text: string; delay: number }) {
@@ -199,8 +199,8 @@ function Index() {
       {/* Testimonials */}
       <section className="overflow-hidden py-24">
         <Reveal className="px-6 text-center">
-          <p className="text-sm text-muted-foreground">Original DOVV reference testimonials — not Zenmark reviews</p>
-          <h2 className="font-display mt-2 text-6xl uppercase md:text-8xl">Kind words</h2>
+          <h2 className="font-display text-6xl uppercase md:text-8xl">Kind words</h2>
+          <p className="mt-3 text-sm text-muted-foreground">Sample Indian reviews · Replace with verified customer feedback</p>
         </Reveal>
         <div className="mt-14 [mask-image:linear-gradient(90deg,transparent,black_10%,black_90%,transparent)]">
           <div className="animate-marquee flex w-max gap-6 hover:[animation-play-state:paused]" style={{ animationDuration: "60s" }}>
@@ -220,19 +220,33 @@ function Index() {
 
       {/* About */}
       <section className="mx-auto max-w-[1400px] px-6 py-24 md:px-8">
-         <Reveal><p className="text-sm text-muted-foreground">About the original DOVV reference studio — Zenmark biography pending</p></Reveal>
-        <Reveal delay={100}>
-          <p className="mt-6 text-3xl font-medium leading-tight md:text-5xl">
-            I'm Dario, the designer and developer behind DOVV. I design and build websites from the first sketch to the last line of code, so strategy, design and Framer development stay in the same hands and nothing gets lost along the way.
+        <Reveal>
+          <p className="text-sm text-muted-foreground">About Zen Mark</p>
+          <p className="mt-6 max-w-5xl text-3xl font-medium leading-tight md:text-5xl">
+            Zen Mark is a cyber cafe and service provider that creates thoughtful visual designs for businesses, celebrations, and campaigns.
           </p>
         </Reveal>
-        <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {["Design and development, one team", "A direct line, no handoffs", "50+ clients worldwide", "Also building IURA, for law firms"].map((x, i) => (
+        <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {[
+            "Logo creation and brand identity",
+            "Wedding invitation and wedding card design",
+            "Posters and promotional banners",
+            "Social media graphics and advertising creatives",
+            "Animated graphics and motion design",
+          ].map((x, i) => (
             <Reveal key={x} delay={i * 80}>
-              <li className="flex h-full items-center gap-3 rounded-2xl border border-border bg-card p-5"><Check className="h-5 w-5 shrink-0" />{x}</li>
+              <li className="flex h-full items-center gap-3 rounded-xl border border-border bg-card p-5"><Check className="h-5 w-5 shrink-0" />{x}</li>
             </Reveal>
           ))}
         </ul>
+        <Reveal delay={160}>
+          <div className="mt-16 border-t border-border pt-8">
+            <h3 className="font-display text-4xl uppercase md:text-6xl">Portfolio</h3>
+            <p className="mt-4 max-w-5xl text-xl leading-relaxed text-muted-foreground md:text-2xl">
+              Real project images and design from the first sketch to the last line of code. By keeping strategy, design, and Framer development in the same hands, nothing gets lost along the way.
+            </p>
+          </div>
+        </Reveal>
       </section>
 
       {/* Process */}
@@ -241,15 +255,16 @@ function Index() {
       {/* Pricing */}
       <section id="pricing" className="mx-auto max-w-[1800px] px-6 py-24 md:px-8">
         <Reveal className="text-center">
-          <p className="text-sm text-muted-foreground">Original DOVV reference packages — not confirmed Zenmark pricing</p>
-          <h2 className="font-display mt-2 text-6xl uppercase md:text-8xl">Pricing to confirm</h2>
+          <p className="text-sm text-muted-foreground">Estimated ranges in Indian rupees; final quotes depend on project scope.</p>
+          <h2 className="font-display mt-2 text-6xl uppercase md:text-8xl">Pricing ranges</h2>
         </Reveal>
         <div className="mt-14 grid gap-6 lg:grid-cols-3">
           {plans.map((p, i) => (
-            <Reveal key={p.price} delay={i * 120}>
+            <Reveal key={p.name} delay={i * 120}>
               <div className={`flex h-full flex-col rounded-3xl p-8 transition-transform duration-500 hover:-translate-y-2 ${p.featured ? "bg-primary text-primary-foreground" : "border border-border bg-card"}`}>
+                <h3 className="text-lg font-semibold">{p.name}</h3>
                 <div className="flex items-baseline gap-2">
-                  <span className="font-display text-7xl">{p.price}</span>
+                  <span className="font-display text-4xl md:text-5xl">{p.price}</span>
                   <span className="text-sm opacity-60">{p.unit}</span>
                 </div>
                 <p className="mt-4 opacity-80">{p.d}</p>
