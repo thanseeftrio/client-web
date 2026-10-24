@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Check, Star, ArrowRight } from "lucide-react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { BOOK_URL, PillButton, ProjectCard, Reveal, projects } from "@/components/site";
 
 export const Route = createFileRoute("/")({
@@ -44,6 +45,84 @@ function Line({ text, delay }: { text: string; delay: number }) {
     <span className="block overflow-hidden">
       <span className="animate-rise block" style={{ animationDelay: `${delay}ms` }}>{text}</span>
     </span>
+  );
+}
+
+function ProcessSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [inView, setInView] = useState(false);
+  const [enteredCards, setEnteredCards] = useState(0);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry?.isIntersecting) {
+          setInView(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.12 },
+    );
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <section
+      ref={sectionRef}
+      id="how-it-works"
+      className={`process-section ${inView ? "process-visible" : ""} ${enteredCards === steps.length ? "process-entered" : ""}`}
+      aria-labelledby="process-title"
+    >
+      <div className="process-inner">
+        <div className="process-heading">
+          <h2 id="process-title" className="font-display text-6xl uppercase md:text-8xl">How it works</h2>
+          <p>Original website-design process retained for reference; Zenmark’s process and timings require confirmation.</p>
+        </div>
+        <div className="process-stage">
+          <svg className="process-path" viewBox="0 0 1200 450" preserveAspectRatio="none" aria-hidden="true">
+            <path pathLength="1" d="M-20 70 C100 70 110 155 270 155 S440 225 600 135 S780 65 900 145 S1080 220 1220 120" />
+          </svg>
+          <span className="process-star" aria-hidden="true" />
+          <ol className="process-grid">
+            {steps.map((step, index) => {
+              const colors = [
+                { background: "#c6f432", foreground: "#1d2a00" },
+                { background: "#ff7ac6", foreground: "#3d0a26" },
+                { background: "#2e90fa", foreground: "#ffffff" },
+                { background: "#ed4a1c", foreground: "#ffffff" },
+              ];
+              const color = colors[index];
+              return (
+                <li
+                  key={step.t}
+                  className="process-card"
+                  onAnimationEnd={(event) => {
+                    if (event.animationName === "process-card-enter") {
+                      setEnteredCards((count) => Math.min(steps.length, count + 1));
+                    }
+                  }}
+                  style={{
+                    "--card-background": color.background,
+                    "--card-foreground": color.foreground,
+                    "--card-index": index,
+                  } as CSSProperties}
+                >
+                  <span className="process-number">0{index + 1}</span>
+                  {step.tag && <span className={`process-badge process-badge-${index}`}>{step.tag}</span>}
+                  <div className="process-copy">
+                    <h3>{step.t}</h3>
+                    <p>{step.d}</p>
+                  </div>
+                </li>
+              );
+            })}
+          </ol>
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -106,7 +185,7 @@ function Index() {
       </section>
 
       {/* Work */}
-      <section className="mx-auto max-w-[1800px] px-6 py-24 md:px-8">
+      <section id="work" className="mx-auto max-w-[1800px] px-6 py-24 md:px-8">
         <Reveal className="mb-12 flex items-end justify-between">
           <h2 className="font-display text-6xl uppercase md:text-8xl">DOVV project previews</h2>
           <Link to="/work" className="hidden text-sm font-medium underline underline-offset-4 md:block">View all</Link>
@@ -157,28 +236,10 @@ function Index() {
       </section>
 
       {/* Process */}
-      <section className="mx-auto max-w-[1800px] px-6 py-24 md:px-8">
-        <Reveal><h2 className="font-display text-6xl uppercase md:text-8xl">How it works</h2><p className="mt-4 text-sm text-muted-foreground">Original website-design process retained for reference; Zenmark’s process and timings require confirmation.</p></Reveal>
-        <ol className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {steps.map((s, i) => (
-            <Reveal key={s.t} delay={i * 120}>
-              <li className="group relative flex h-full min-h-72 flex-col justify-between rounded-2xl bg-card p-8 transition-all duration-500 hover:-translate-y-2 hover:bg-primary hover:text-primary-foreground">
-                <div className="flex items-start justify-between">
-                  <span className="font-display text-6xl">0{i + 1}</span>
-                  {s.tag && <span className={`${i === 0 ? "sticker-lime" : "sticker-pink"} rotate-6 rounded-full px-3 py-1 text-xs font-bold text-foreground`}>{s.tag}</span>}
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold">{s.t}</h3>
-                  <p className="mt-2 opacity-70">{s.d}</p>
-                </div>
-              </li>
-            </Reveal>
-          ))}
-        </ol>
-      </section>
+      <ProcessSection />
 
       {/* Pricing */}
-      <section className="mx-auto max-w-[1800px] px-6 py-24 md:px-8">
+      <section id="pricing" className="mx-auto max-w-[1800px] px-6 py-24 md:px-8">
         <Reveal className="text-center">
           <p className="text-sm text-muted-foreground">Original DOVV reference packages — not confirmed Zenmark pricing</p>
           <h2 className="font-display mt-2 text-6xl uppercase md:text-8xl">Pricing to confirm</h2>

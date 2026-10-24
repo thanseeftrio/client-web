@@ -12,7 +12,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import { Header, Footer } from "@/components/site";
+import { BottomNav, Header, Footer } from "@/components/site";
 
 function NotFoundComponent() {
   return (
@@ -125,6 +125,7 @@ function RootComponent() {
       <a href="#main-content" className="skip-link">Skip to content</a>
       <Outlet />
       <Footer />
+      <BottomNav />
     </QueryClientProvider>
   );
 }

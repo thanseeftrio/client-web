@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState, type ReactNode } from "react";
-import { ArrowUpRight, ArrowRight } from "lucide-react";
+import { ArrowUpRight, ArrowRight, CircleDollarSign, Grid2X2, House, MessageCircle, Workflow } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogTrigger, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { business, whatsappLink, type ServiceId } from "@/lib/business";
@@ -110,9 +110,48 @@ export function Header() {
   );
 }
 
+export function BottomNav() {
+  const [processVisible, setProcessVisible] = useState(false);
+
+  useEffect(() => {
+    const section = document.querySelector("#how-it-works");
+    if (!section) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setProcessVisible(Boolean(entry?.isIntersecting)),
+      { threshold: 0.05 },
+    );
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
+
+  const items = [
+    { label: "Home", href: "/#main-content", icon: House },
+    { label: "Work", href: "/#work", icon: Grid2X2 },
+    { label: "Process", href: "/#how-it-works", icon: Workflow },
+    { label: "Pricing", href: "/#pricing", icon: CircleDollarSign },
+    { label: "Contact", href: "/#contact", icon: MessageCircle },
+  ];
+
+  return (
+    <nav
+      className={`bottom-nav ${processVisible ? "bottom-nav-hidden" : ""}`}
+      aria-label="Quick navigation"
+      aria-hidden={processVisible}
+      inert={processVisible}
+    >
+      {items.map(({ label, href, icon: Icon }) => (
+        <a key={label} className="bottom-nav-item" href={href} aria-label={label} title={label}>
+          <Icon aria-hidden="true" />
+          <span>{label}</span>
+        </a>
+      ))}
+    </nav>
+  );
+}
+
 export function Footer() {
   return (
-    <footer className="overflow-hidden bg-primary text-primary-foreground">
+    <footer id="contact" className="overflow-hidden bg-primary text-primary-foreground">
       <div className="mx-auto max-w-[1800px] px-6 pt-20 md:px-8">
         <div className="grid gap-10 md:grid-cols-[2fr_1fr_1fr]">
           <div>
