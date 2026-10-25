@@ -4,7 +4,7 @@ import { enquirySchema } from "@/lib/enquiry-schema";
 
 describe("Client business rules", () => {
   it("uses the client's WhatsApp number", () => expect(new URL(whatsappLink()).pathname).toBe("/919741325159"));
-  it("uses the confirmed business email", () => expect(business.email).toBe("zenmarkoffice@gmail.com"));
+  it("uses the confirmed business email", () => expect(business.email).toBe("www.zenflix@gmail.com"));
   it("offers all required services", () => expect(services.map(s => s.id)).toEqual(["brand-identity", "wedding-design", "posters-banners", "social-creatives", "motion-design", "web-software-creation"]));
   it("filters only projects in the requested category", () => expect(filterProjects([{ category: "motion-design" as const }, { category: null }], "motion-design")).toEqual([{ category: "motion-design" }]));
   it("does not assign unverified examples to a genuine service category", () => expect(filterProjects([{ category: null }], "wedding-design")).toEqual([]));

@@ -1,6 +1,6 @@
 export const business = {
   name: "Zenflix",
-  email: "zenmarkoffice@gmail.com",
+  email: "www.zenflix@gmail.com",
   phone: "+91 97413 25159",
   whatsappDigits: "919741325159",
   instagram: "https://www.instagram.com/zen_mark_kadaba?rpxt=MW00NmEzNHpzazhtdw==",
