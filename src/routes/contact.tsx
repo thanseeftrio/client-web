@@ -11,10 +11,10 @@ export const Route = createFileRoute("/contact")({
   validateSearch: (search: Record<string, unknown>): { service?: string } => services.some(s => s.id === search["service"]) ? { service: String(search["service"]) } : {},
   head: () => ({
     meta: [
-      { title: "Contact — Zenmark" },
-      { name: "description", content: "Enquire about design services with Zenmark, or contact the studio on WhatsApp." },
-      { property: "og:title", content: "Contact — Zenmark" },
-      { property: "og:description", content: "Tell Zenmark about your brand, wedding, promotional or motion design project." },
+      { title: "Contact — Zenflix" },
+      { name: "description", content: "Enquire about design services with Zenflix, or contact the studio on WhatsApp." },
+      { property: "og:title", content: "Contact — Zenflix" },
+      { property: "og:description", content: "Tell Zenflix about your brand, wedding, promotional or motion design project." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -69,7 +69,7 @@ function Contact() {
           <div className="flex h-full min-h-80 flex-col items-center justify-center text-center">
             <span className="sticker-sun grid h-24 w-24 place-items-center rounded-full text-5xl">☺</span>
             <h2 className="font-display mt-6 text-5xl uppercase">Enquiry saved</h2>
-            <p role="status" className="mt-2 text-muted-foreground">Your enquiry is saved for Zenmark. Reference: {reference}.</p>
+            <p role="status" className="mt-2 text-muted-foreground">Your enquiry is saved for Zenflix. Reference: {reference}.</p>
             <p className="mt-3 text-sm text-muted-foreground">Email notifications are not active yet. For a direct reply, contact us on WhatsApp.</p>
             <Button asChild className="mt-6 rounded-full"><a href={whatsappLink()} target="_blank" rel="noreferrer">Contact on WhatsApp <ArrowUpRight /></a></Button>
           </div>
@@ -84,7 +84,7 @@ function Contact() {
             <label className="block text-sm">Project description<textarea name="message" required maxLength={3000} rows={4} placeholder="Tell us about your project" className={field} /></label>
             <div hidden aria-hidden="true"><label>Leave empty<input name="website" tabIndex={-1} autoComplete="off" /></label></div>
             {error && <p role="alert" className="text-sm text-destructive">{error}</p>}
-            <p className="text-xs text-muted-foreground">Your details are stored privately for Zenmark to handle your enquiry. Email notifications are not yet active.</p>
+            <p className="text-xs text-muted-foreground">Your details are stored privately for Zenflix to handle your enquiry. Email notifications are not yet active.</p>
             <Button type="submit" disabled={loading} className="h-auto w-full rounded-full py-4 font-medium">{loading ? "Sending…" : "Send enquiry"}<ArrowUpRight /></Button>
           </form>
         )}

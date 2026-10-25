@@ -3,10 +3,10 @@ import { ServiceList } from "@/components/services";
 
 export const Route = createFileRoute("/services")({
   head: () => ({ meta: [
-    { title: "Design services — Zenmark" },
-    { name: "description", content: "Logo and brand identity, wedding invitations, posters, social creatives and motion graphics by Zenmark." },
-    { property: "og:title", content: "Design services — Zenmark" },
-    { property: "og:description", content: "Explore five creative design services and discuss your project with Zenmark." },
+    { title: "Design services — Zenflix" },
+    { name: "description", content: "Logo and brand identity, wedding invitations, posters, social creatives and motion graphics by Zenflix." },
+    { property: "og:title", content: "Design services — Zenflix" },
+    { property: "og:description", content: "Explore five creative design services and discuss your project with Zenflix." },
     { property: "og:type", content: "website" },
     { name: "twitter:card", content: "summary_large_image" },
   ] }),

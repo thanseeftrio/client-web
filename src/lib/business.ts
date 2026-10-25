@@ -1,5 +1,5 @@
 export const business = {
-  name: "Zenmark",
+  name: "Zenflix",
   email: "zenmarkoffice@gmail.com",
   phone: "+91 97413 25159",
   whatsappDigits: "919741325159",
@@ -12,12 +12,13 @@ export const services = [
   { id: "posters-banners", name: "Posters & banners", description: "Promotional posters and banners with clear messages and eye-catching composition.", accent: "sticker-orange", symbol: "↗" },
   { id: "social-creatives", name: "Social media creatives", description: "Social graphics and advertising creatives designed for your brand and campaign.", accent: "sticker-sun", symbol: "#" },
   { id: "motion-design", name: "Animated & motion graphics", description: "Animated graphics and motion design that give your ideas rhythm and movement.", accent: "sticker-lime", symbol: "▶" },
+  { id: "web-software-creation", name: "Website development & software creation", description: "Modern, high-performance websites, custom web applications, and bespoke digital software tailored to your workflow.", accent: "sticker-pink", symbol: "</>" },
 ] as const;
 
 export type ServiceId = (typeof services)[number]["id"];
 
 export function whatsappLink(service?: string) {
-  const text = service ? `Hi Zenmark, I’d like to enquire about ${service}.` : "Hi Zenmark, I’d like to discuss a design project.";
+  const text = service ? `Hi Zenflix, I’d like to enquire about ${service}.` : "Hi Zenflix, I’d like to discuss a design project.";
   return `https://wa.me/${business.whatsappDigits}?text=${encodeURIComponent(text)}`;
 }
 

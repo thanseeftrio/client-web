@@ -6,10 +6,10 @@ import { BOOK_URL, PillButton, ProjectCard, Reveal, projects } from "@/component
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Zenmark — Graphic design & motion" },
-      { name: "description", content: "Zenmark creates brand identities, wedding invitations, posters, social media creatives and animated graphics." },
-      { property: "og:title", content: "Zenmark — Graphic design & motion" },
-      { property: "og:description", content: "Creative design for brands, celebrations and campaigns. Contact Zenmark about your project." },
+      { title: "Zenflix — Graphic design & motion" },
+      { name: "description", content: "Zenflix creates brand identities, wedding invitations, posters, social media creatives and animated graphics." },
+      { property: "og:title", content: "Zenflix — Graphic design & motion" },
+      { property: "og:description", content: "Creative design for brands, celebrations and campaigns. Contact Zenflix about your project." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -35,10 +35,10 @@ const testimonials = [
 ];
 
 const steps = [
-  { t: "Discovery", d: "A short call about your goals. You get scope, timeline and price before anything starts.", tag: "Free 15 min call" },
-  { t: "Design", d: "Structure and visuals in Figma, shaped with your feedback at every step." },
-  { t: "Framer build", d: "Responsive and animated, with CMS and SEO set up so you can edit it yourself." },
-  { t: "Launch", d: "Live on your domain, everything handed over, and support after.", tag: "It's live!" },
+  { t: "Discovery", d: "A short discussion about your goals, style, and timeline before anything starts.", tag: "Free initial chat" },
+  { t: "Concept Design", d: "Initial layouts, typography, and concepts shaped with your feedback." },
+  { t: "Refinement & Motion", d: "Polishing details, preparing formats, and animating graphics for impact." },
+  { t: "Final Delivery", d: "High-resolution print-ready and digital assets ready to publish and use.", tag: "Ready to use!" },
 ];
 
 const plans = [
@@ -86,7 +86,7 @@ function ProcessSection() {
       <div className="process-inner">
         <div className="process-heading">
           <h2 id="process-title" className="font-display text-6xl uppercase md:text-8xl">How it works</h2>
-          <p>Original website-design process retained for reference; Zenmark’s process and timings require confirmation.</p>
+          <p>Our creative design process from initial brief to final delivery.</p>
         </div>
         <div className="process-stage">
           <svg className="process-path" viewBox="0 0 1200 450" preserveAspectRatio="none" aria-hidden="true">
@@ -146,9 +146,9 @@ function Index() {
           <ArrowRight className="h-3.5 w-3.5" />
         </a>
         <h1 className="font-display text-[15vw] uppercase leading-[0.88] md:text-[8.5vw]">
-          <span className="sr-only">Zenmark — Graphic design and motion</span>
+          <span className="sr-only">Zenflix — Graphic design and motion</span>
           <span aria-hidden>
-            <Line text="Zenmark" delay={100} />
+            <Line text="Zenflix" delay={100} />
             <Line text="Design in motion" delay={250} />
           </span>
         </h1>
@@ -161,7 +161,7 @@ function Index() {
           ☺
         </span>
         <span className="animate-float sticker-lime shadow-sticker absolute bottom-[26%] left-[7%] hidden h-36 w-36 flex-col items-center justify-center border-4 border-card md:flex" style={{ ["--r" as string]: "-8deg", clipPath: "polygon(50% 0,61% 12%,78% 6%,80% 23%,96% 28%,88% 43%,100% 55%,85% 64%,90% 82%,72% 82%,64% 98%,50% 88%,36% 98%,28% 82%,10% 82%,15% 64%,0 55%,12% 43%,4% 28%,20% 23%,22% 6%,39% 12%)", animationDelay: "900ms" }}>
-          <span className="text-4xl font-bold">5</span>
+          <span className="text-4xl font-bold">6</span>
           <span className="text-xs font-bold">Creative services</span>
         </span>
         <span className="animate-float sticker-pink shadow-sticker absolute bottom-[24%] right-[8%] hidden rounded-full border-4 border-card px-10 py-4 text-2xl font-bold md:block" style={{ ["--r" as string]: "6deg", animationDelay: "1050ms" }}>
@@ -169,7 +169,7 @@ function Index() {
         </span>
 
         <p className="animate-fade-up mx-auto mt-10 max-w-lg text-lg text-muted-foreground" style={{ animationDelay: "500ms" }}>
-          Logo and brand identity, wedding invitations, posters and banners, social media creatives, and animated graphics.
+          Logo and brand identity, wedding invitations, posters, social media creatives, animated graphics, and custom website & software development.
         </p>
         <div className="animate-fade-up mt-8 flex flex-wrap justify-center gap-3" style={{ animationDelay: "650ms" }}>
           <PillButton to="/contact">Start a project</PillButton>
@@ -208,7 +208,7 @@ function Index() {
       {/* Work */}
       <section id="work" className="mx-auto max-w-[1800px] px-6 py-24 md:px-8">
         <Reveal className="mb-12 flex items-end justify-between">
-          <h2 className="font-display text-6xl uppercase md:text-8xl">Zenmark project previews</h2>
+          <h2 className="font-display text-6xl uppercase md:text-8xl">Zenflix project previews</h2>
           <Link to="/work" className="hidden text-sm font-medium underline underline-offset-4 md:block">View all</Link>
         </Reveal>
         <div className="grid gap-x-8 gap-y-14 md:grid-cols-2">
@@ -242,9 +242,9 @@ function Index() {
       {/* About */}
       <section className="mx-auto max-w-[1400px] px-6 py-24 md:px-8">
         <Reveal>
-          <p className="text-sm text-muted-foreground">About Zen Mark</p>
+          <p className="text-sm text-muted-foreground">About Zenflix</p>
           <p className="mt-6 max-w-5xl text-3xl font-medium leading-tight md:text-5xl">
-            Zen Mark is a cyber cafe and service provider that creates thoughtful visual designs for businesses, celebrations, and campaigns.
+            Zenflix is a cyber cafe and service provider that creates thoughtful visual designs for businesses, celebrations, and campaigns.
           </p>
         </Reveal>
         <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -254,6 +254,7 @@ function Index() {
             "Posters and promotional banners",
             "Social media graphics and advertising creatives",
             "Animated graphics and motion design",
+            "Website development & custom software creation",
           ].map((x, i) => (
             <Reveal key={x} delay={i * 80}>
               <li className="flex h-full items-center gap-3 rounded-xl border border-border bg-card p-5"><Check className="h-5 w-5 shrink-0" />{x}</li>
@@ -264,7 +265,7 @@ function Index() {
           <div className="mt-16 border-t border-border pt-8">
             <h3 className="font-display text-4xl uppercase md:text-6xl">Portfolio</h3>
             <p className="mt-4 max-w-5xl text-xl leading-relaxed text-muted-foreground md:text-2xl">
-              Real project images and design from the first sketch to the last line of code. By keeping strategy, design, and Framer development in the same hands, nothing gets lost along the way.
+              Thoughtful project design crafted from the first sketch to the final export. By keeping creative direction and design in the same hands, every detail reflects your brand perfectly.
             </p>
           </div>
         </Reveal>

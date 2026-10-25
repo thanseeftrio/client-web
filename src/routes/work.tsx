@@ -7,9 +7,9 @@ import { filterProjects, services, type ServiceId } from "@/lib/business";
 export const Route = createFileRoute("/work")({
   head: () => ({
     meta: [
-      { title: "Portfolio — Zenmark" },
-      { name: "description", content: "Explore Zenmark design categories and clearly labelled concept previews." },
-      { property: "og:title", content: "Portfolio — Zenmark" },
+      { title: "Portfolio — Zenflix" },
+      { name: "description", content: "Explore Zenflix design categories and clearly labelled concept previews." },
+      { property: "og:title", content: "Portfolio — Zenflix" },
       { property: "og:description", content: "Brand identity, wedding designs, promotional graphics, social creatives and motion design." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

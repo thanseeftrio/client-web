@@ -18,35 +18,35 @@ export const projects = [
     tags: ["Logo Design", "Brand Identity"],
     category: null as ServiceId | null,
     provenance: "Logo creation and brand identity preview",
-    video: "/project-previews/terrace.mp4",
+    video: "/project-previews/logo-tv.mp4",
     sourceUrl: undefined as string | undefined,
   },
   {
-    name: "Oakline",
+    name: "Zenflix",
     img: work2,
-    tags: ["UX / UI Design", "Web Development"],
-    category: null as ServiceId | null,
-    provenance: "Original DOVV Studio project preview",
-    video: "/project-previews/oakline.mp4",
-    sourceUrl: "https://dovvstudio.com/work/oakline",
+    tags: ["Wedding Invitations Card", "Card Design"],
+    category: "wedding-design" as ServiceId | null,
+    provenance: "Zenflix wedding invitations card design preview",
+    video: "/project-previews/zenflix.mp4",
+    sourceUrl: undefined as string | undefined,
   },
   {
     name: "Ambience",
     img: work3,
-    tags: ["UX / UI Design", "Web Development"],
-    category: null as ServiceId | null,
-    provenance: "Original DOVV Studio project preview",
+    tags: ["Website Development", "Web Creation"],
+    category: "web-software-creation" as ServiceId | null,
+    provenance: "",
     video: "/project-previews/ambience.mp4",
-    sourceUrl: "https://dovvstudio.com/work/ambience",
+    sourceUrl: undefined as string | undefined,
   },
   {
     name: "ARQC",
     img: work4,
-    tags: ["UX / UI Design", "Web Development"],
-    category: null as ServiceId | null,
-    provenance: "Original DOVV Studio project preview",
+    tags: ["Custom Software Creation"],
+    category: "web-software-creation" as ServiceId | null,
+    provenance: "",
     video: "/project-previews/arqc.mp4",
-    sourceUrl: "https://dovvstudio.com/work/arqc",
+    sourceUrl: undefined as string | undefined,
   },
 ];
 
@@ -169,7 +169,7 @@ export function Footer() {
           </div>
           <div className="space-y-2 text-sm">
             <p className="opacity-60">Elsewhere</p>
-            <a href="https://www.awwwards.com/sites/dovv-studio" target="_blank" rel="noreferrer" className="block hover:opacity-60">Awwwards</a>
+            
             <a href={business.instagram} target="_blank" rel="noreferrer" className="block hover:opacity-60">Instagram</a>
             <a href={whatsappLink()} target="_blank" rel="noreferrer" className="block hover:opacity-60">WhatsApp</a>
             <a href={`mailto:${business.email}`} className="block break-all hover:opacity-60">{business.email}</a>
@@ -231,12 +231,12 @@ export function ProjectCard({ p, i }: { p: (typeof projects)[number]; i: number 
             ))}
           </div>
         </div>
-        <p className="mt-2 text-sm text-muted-foreground">{p.provenance}</p>
+        {p.provenance ? <p className="mt-2 text-sm text-muted-foreground">{p.provenance}</p> : null}
       </Button>
       </DialogTrigger>
       <DialogContent className="max-h-[90dvh] w-[calc(100%-2rem)] max-w-4xl overflow-y-auto">
         <DialogTitle className="font-display text-4xl uppercase">{p.name}</DialogTitle>
-        <DialogDescription>{p.provenance}.</DialogDescription>
+        {p.provenance ? <DialogDescription>{p.provenance}.</DialogDescription> : null}
         {p.video ? <video src={p.video} controls playsInline preload="metadata" className="aspect-[10/7] w-full object-contain" /> : <img src={p.img} alt={`${p.name} generated concept in full`} width={1280} height={896} className="aspect-[10/7] w-full object-contain" />}
         {p.sourceUrl && (
           <a

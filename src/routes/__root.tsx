@@ -79,8 +79,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Zenmark" },
-      { name: "description", content: "Zenmark graphic design and motion studio." },
+      { title: "Zenflix" },
+      { name: "description", content: "Zenflix graphic design and motion studio." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
